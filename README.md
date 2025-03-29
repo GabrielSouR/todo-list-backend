@@ -27,8 +27,8 @@
 ## 📦 Instalação
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
-cd seu-repo
+git clone https://github.com/GabrielSouR/todo-list-backend.git
+cd todo-list-backend
 npm install
 ```
 
@@ -37,9 +37,10 @@ Crie um arquivo `.env` com:
 ```env
 PORT=3000
 
+# Dados do MySQL (ajuste conforme seu ambiente)
 DB_HOST=localhost
-DB_USER=root
-DB_PASS=
+DB_USER=seu_user
+DB_PASS=sua_senha
 DB_NAME=to_do_list
 
 JWT_SECRET=sua_chave_secreta
