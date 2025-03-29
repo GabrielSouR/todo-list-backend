@@ -30,8 +30,11 @@
 git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
 npm install
+```
 
-Crie um arquivo .env com:
+Crie um arquivo `.env` com:
+
+```env
 PORT=3000
 
 DB_HOST=localhost
@@ -41,35 +44,43 @@ DB_NAME=to_do_list
 
 JWT_SECRET=sua_chave_secreta
 JWT_EXPIRES_IN=1d
+```
 
-▶️ Como executar
+---
+
+## ▶️ Como executar
+
+```bash
 npm run dev
+```
 
-🔐 Autenticação
-POST /api/auth/register
-Cadastra um novo usuário.
+A API estará disponível em: `http://localhost:3000`
 
-POST /api/auth/login
-Retorna token JWT para autenticação de rotas protegidas.
+---
 
-📋 Endpoints de Tarefas (requer token JWT)
-POST /api/tasks → Cria nova tarefa
+## 🔐 Autenticação
 
-GET /api/tasks → Lista tarefas com:
+- **POST** `/api/auth/register` → Cadastra um novo usuário
+- **POST** `/api/auth/login` → Retorna token JWT para autenticação
 
-Paginação: ?page=1&limit=5
+---
 
-Filtros: ?completed=true
+## 📋 Endpoints de Tarefas (requer token JWT)
 
-Busca: ?search=termo
+- **POST** `/api/tasks` → Cria nova tarefa
+- **GET** `/api/tasks` → Lista tarefas com:
+  - Paginação: `?page=1&limit=5`
+  - Filtros: `?completed=true`
+  - Busca: `?search=termo`
+- **PUT** `/api/tasks/:id` → Atualiza título e status
+- **PATCH** `/api/tasks/:id` → Atualização parcial (ex: apenas `completed`)
+- **DELETE** `/api/tasks/:id` → Remove tarefa
 
-PUT /api/tasks/:id → Atualiza título e status
+---
 
-PATCH /api/tasks/:id → Atualização parcial (ex: só completed)
+## 📁 Estrutura do Projeto
 
-DELETE /api/tasks/:id → Remove tarefa
-
-📁 Estrutura
+```
 src/
 ├── controllers/
 ├── services/
@@ -77,6 +88,7 @@ src/
 ├── middlewares/
 ├── config/
 └── app.js
+```
 
 ---
 
@@ -84,13 +96,13 @@ src/
 
 ### 📌 Tabela `users`
 
-| Campo       | Tipo           | Descrição                      |
-|-------------|----------------|-------------------------------|
-| `id`        | INT (PK)       | Identificador único           |
-| `name`      | VARCHAR(100)   | Nome do usuário               |
-| `email`     | VARCHAR(100)   | E-mail único                  |
-| `password`  | VARCHAR(255)   | Senha (criptografada)         |
-| `created_at`| TIMESTAMP      | Data de criação automática    |
+| Campo        | Tipo           | Descrição                      |
+|--------------|----------------|-------------------------------|
+| `id`         | INT (PK)       | Identificador único           |
+| `name`       | VARCHAR(100)   | Nome do usuário               |
+| `email`      | VARCHAR(100)   | E-mail único                  |
+| `password`   | VARCHAR(255)   | Senha (criptografada)         |
+| `created_at` | TIMESTAMP      | Data de criação automática    |
 
 ---
 
@@ -108,15 +120,25 @@ src/
 
 ---
 
-✅ Funcionalidades
- ✅Registro e login com JWT
- ✅CRUD completo de tarefas
- ✅Filtros por status e busca
- ✅Paginação de resultados
- ✅Edição parcial com PATCH
- ✅Middleware de autenticação
- ✅Organização em camadas
+## ✅ Funcionalidades
 
-👨‍💻 Desenvolvido por
-Gabriel de Souza Ribeiro
+- ✅ Registro e login com JWT
+- ✅ CRUD completo de tarefas
+- ✅ Filtros por status e busca
+- ✅ Paginação de resultados
+- ✅ Edição parcial com PATCH
+- ✅ Middleware de autenticação
+- ✅ Organização em camadas
+
+---
+
+## 👨‍💻 Desenvolvido por
+
+**Gabriel de Souza Ribeiro**  
 Projeto criado como estudo prático de backend moderno, seguro e organizado com Node.js e MySQL.
+
+---
+
+<p align="center">
+  Feito com 💻 e ☕
+</p>
