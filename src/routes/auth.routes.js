@@ -3,10 +3,11 @@ const express = require('express');
 const { body } = require('express-validator');
 const router = express.Router();
 
+const authMiddleware= require('../middlewares/authMiddleware');
 const authController = require('../controllers/authController');
 
 // Rota de registro de usuário
-router.post(
+router.post( 
   '/register',
   [
     body('name').notEmpty().withMessage('O nome é obrigatório'),
