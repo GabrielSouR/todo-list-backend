@@ -100,10 +100,19 @@ const getUserTasksWithFilters = async (userId, page, limit, completed, search) =
     };
 };
 
+const getTaskById = async (taskId, userId) => {
+  const [rows] = await db.query(
+    'SELECT id, title, completed, created_at FROM tasks WHERE id = ? AND user_id = ?',
+    [taskId, userId]
+  )
+  return rows[0]
+}
+
 module.exports = {
   createTask,
   getUserTasks,
   updateTask,
   deleteTask,
-  getUserTasksWithFilters
+  getUserTasksWithFilters,
+  getTaskById
 };
