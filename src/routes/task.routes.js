@@ -36,4 +36,13 @@ router.delete(
     taskController.remove
 );
 
+router.patch(
+    '/:id',
+    [
+      body('title').optional().notEmpty().withMessage('O título não pode estar vazio'),
+      body('completed').optional().isBoolean().withMessage('O campo completed deve ser true ou false')
+    ],
+    taskController.partialUpdate
+);
+
 module.exports = router;
